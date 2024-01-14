@@ -8,6 +8,10 @@ To run this project, you will need:
 
 - Docker installed on your machine. You can download Docker [here](https://www.docker.com/products/docker-desktop).
 
+## Authentication 
+
+Uses Basic Auth. Rename .env.example file to .env, and setup your own credentials for authentication.
+
 # Docker Setup
 To run the application using Docker, follow these steps:
 
