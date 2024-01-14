@@ -1,4 +1,4 @@
-def get_rephraser_system_description(number_of_variants):
+def get_rephraser_system_description(number_of_variants) -> str:
     return (
         f"You have to rephrase the given text in the same langauge. "
         f"You must respond in JSON format and provide {number_of_variants} "
@@ -7,7 +7,7 @@ def get_rephraser_system_description(number_of_variants):
     )
 
 
-def get_content_generation_system_description(sections):
+def get_content_generation_system_description(sections) -> str:
     return (
         f"You will receive a description about users website. "
         f"You are required and must generate content for each given section of a website, but no extra. "

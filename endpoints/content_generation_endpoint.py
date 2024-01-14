@@ -10,7 +10,7 @@ generate_content_router = APIRouter()
 @generate_content_router.post("/generate")
 async def generate_content_endpoint(
     request: ContentGenerationRequest, credentials: HTTPBasicCredentials = Depends(verify_credentials)
-):
+) -> ContentGenerationRequest | dict:
     try:
         return await content_generation_service(request)
     except InvalidResponseException as exc:

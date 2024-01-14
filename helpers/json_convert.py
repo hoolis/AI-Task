@@ -2,7 +2,7 @@ import json
 import logging
 
 
-def convert_string_to_json(content_string):
+def convert_string_to_json(content_string) -> dict | None:
     try:
         return json.loads(content_string)
     except json.JSONDecodeError:

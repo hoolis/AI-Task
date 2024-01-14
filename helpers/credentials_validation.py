@@ -7,7 +7,7 @@ load_dotenv()
 security = HTTPBasic()
 
 
-def verify_credentials(credentials: HTTPBasicCredentials = Depends(security)):
+def verify_credentials(credentials: HTTPBasicCredentials = Depends(security)) -> HTTPBasicCredentials:
     if credentials.username != os.environ.get("BASIC_AUTH_USER") or credentials.password != os.environ.get(
         "BASIC_AUTH_PASSWORD"
     ):

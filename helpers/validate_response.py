@@ -1,7 +1,7 @@
 import logging
 
 
-def is_gpt_rephraser_response_valid(gpt_response, number_of_variants):
+def is_gpt_rephraser_response_valid(gpt_response, number_of_variants) -> bool:
     try:
         if (
             gpt_response.get("number_of_variants", 0) == number_of_variants
@@ -14,7 +14,7 @@ def is_gpt_rephraser_response_valid(gpt_response, number_of_variants):
         return False
 
 
-def is_gpt_content_generation_response_valid(gpt_response, expected_structure):
+def is_gpt_content_generation_response_valid(gpt_response, expected_structure) -> bool:
     try:
         expected_structure_dict = expected_structure.dict(exclude_none=True)
 
@@ -35,14 +35,14 @@ def is_gpt_content_generation_response_valid(gpt_response, expected_structure):
         return False
 
 
-def is_section_present(gpt_response, section_name):
+def is_section_present(gpt_response, section_name) -> bool:
     if section_name not in gpt_response:
         logging.error(f"Missing section: {section_name}")
         return False
     return True
 
 
-def is_attribute_valid(gpt_section, attribute_name, expected_count):
+def is_attribute_valid(gpt_section, attribute_name, expected_count) -> bool:
     if attribute_name not in gpt_section:
         logging.error(f"Missing attribute '{attribute_name}'")
         return False

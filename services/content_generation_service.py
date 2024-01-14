@@ -12,7 +12,7 @@ class InvalidResponseException(Exception):
 
 
 @retry(wait=wait_fixed(1), stop=stop_after_attempt(2), retry=retry_if_exception_type(InvalidResponseException))
-async def content_generation_service(request: ContentGenerationRequest):
+async def content_generation_service(request: ContentGenerationRequest) -> ContentGenerationRequest | dict:
     cleaned_model = request.sections.cleanup()
 
     gpt_response = await OpenAIChat().chat_completion_with_backoff(
